@@ -38,8 +38,8 @@ $w.onReady(function () {
 
             console.log(`  - Found elements for item ${index + 1}`);
 
-            // Initially collapse all content
-            content.collapse();
+            // Initially hide all content
+            content.hide();
 
             // Add click handler
             header.onClick(() => {
@@ -50,17 +50,17 @@ $w.onReady(function () {
                 // Close currently open item
                 if (openItem !== null && openItem !== index) {
                     console.log(`  - Closing previously open item ${openItem + 1}`);
-                    $w(`#${items[openItem].content}`).collapse();
+                    $w(`#${items[openItem].content}`).hide();
                 }
 
                 // Toggle current item
                 if (isOpen) {
                     console.log(`  - Closing item ${index + 1}`);
-                    content.collapse();
+                    content.hide();
                     openItem = null;
                 } else {
                     console.log(`  - Opening item ${index + 1}`);
-                    content.expand();
+                    content.show();
                     openItem = index;
                 }
             });
